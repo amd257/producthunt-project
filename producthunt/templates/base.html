@@ -12,7 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
 </head>
 
 <body data-gr-c-s-loaded="true">
@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-      <a class="navbar-brand" href="">
+      <a class="navbar-brand" href="{% url 'home'%}">
       <img src="{% static 'logo.png' %}" height=35 width=35 class="d-inline-block align-top" />
       <b>Product Hunt</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
+          <a class="nav-item nav-link " href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
           <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
           <form id="logout" method="POST" action="{% url 'logout' %}">
             {% csrf_token %}
@@ -51,8 +52,9 @@
   </div>
 
   <footer class="text-muted">
+    <br /><br /><br />
     <div class="container text-center">
-      <p>Product Hunt Clone {% now "Y" %}</p>
+      <p>© Product Hunt Clone {% now "Y" %}</p>
     </div>
   </footer>
 
