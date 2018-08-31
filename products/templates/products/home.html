@@ -2,7 +2,25 @@
 
 
 {% block content %}
-<br />
+
+{% load staticfiles %}
+<link href="https://fonts.googleapis.com/css?family=Cantarell:400i|Lobster|Noto+Serif|Ubuntu" rel="stylesheet">
+ <div class="jumbotron jumbotron-fluid" style="background-color: #c03100; ">
+   <div class="container-fluid">
+     <div class="row">
+      <div class="col-8">
+        <h1 class="jumbotron-heading" style="color:#ffffff; font-family: 'Lobster', cursive;">Welcome to Product Hunt!</h1>
+        <p class="text" style="color:#ffffff; ">Discover awesome new tech apps and products that have been hunted by our ever-growing community of users.
+        Product Hunt surfaces the best new products, every day. It's a place for product-loving enthusiasts to share and geek out about the latest mobile apps,
+        websites, hardware projects, and tech creations.</p>
+        <a href="{% url 'signup' %}" class="btn btn-primary my-2" style="background-color:#ffffff; color: #c03100;"><b>Sign Up</b></a>
+      </div>
+      <div class="col-4" >
+        <img class="img-fluid" src="{% static 'cat-tech.jpg' %}" />
+      </div>
+     </div>
+   </div>
+</div>
 {% for product in products.all%}
 <br />
 <div class="row">
